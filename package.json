@@ -1,0 +1,15 @@
+{
+    "name": "registration_and_login_app",
+    "version": "1.0.0",
+    "description": "this project is a simple application to create a secure login and registration",
+    "dependencies": {
+        "core-js": "3.33.0",
+        "express": "4.18.2",
+        "nodemailer": "6.9.6",
+        "mongoose": "7.6.1"
+    },
+    "scripts": {
+        "serve": "nodemon server.js"
+    }
+    
+}

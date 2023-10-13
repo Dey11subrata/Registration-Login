@@ -1,0 +1,27 @@
+Registration:
+    email - validation
+        - trigger email link to fill registration form.
+        open link and complete registration
+
+user registration schema:
+
+email 
+    - string
+    - validation
+    - required
+fullname
+    - string
+    - required
+contact number
+    - number
+    - required
+dob
+    - string
+street address
+     - string
+city
+    - string
+state
+    - string
+pincode
+    - number
