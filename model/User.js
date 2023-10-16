@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   },
   streetAddress: {
     type: String,
-    default: "NA",
+    required: false,
   },
   city: {
     type: String,
