@@ -1,16 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-
-const encryptPassword = (userPassword) => {
-  const salt = bcrypt.genSaltSync(8);
-  const hashedPassword = bcrypt.hashSync(userPassword, salt);
-  return hashedPassword;
-};
+const { encryptPassword } = require("../../service/encryption");
 
 // bring User Model here
 
 const User = require("../../model/User");
+const { lookForUser } = require("../../service/loginService");
 
 // @router      Post api/users
 // @desc        Create a new User
@@ -50,7 +45,8 @@ router.get("/", async (req, res) => {
 
 router.get("/:userEmail", async (req, res) => {
   console.log(req.params.userEmail);
-  const user = await User.findOne({ userEmail: req.params.userEmail });
+  const user = await lookForUser(req.params.userEmail);
+  console.log("in user.js", user);
   res.json(user);
 });
 

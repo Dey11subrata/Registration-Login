@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const mongourl = require("./keys/keys").MONGOURL;
 const port = require("./keys/keys").APPLICATION_PORT;
 const users = require("./router/api/users");
+const login = require("./router/api/login");
 
 const app = express();
 
@@ -17,5 +18,6 @@ mongoose
   );
 
 app.use("/api/users", users);
+app.use("/api/login", login);
 
 app.listen(port, () => console.log("listning on port ", port));
