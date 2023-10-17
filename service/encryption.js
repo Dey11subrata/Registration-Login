@@ -1,6 +1,4 @@
 const bcrypt = require("bcryptjs");
-const router = require("../router/api/users");
-// const { lookForUser } = require("../service/login");
 
 const encryptPassword = (userPassword) => {
   const salt = bcrypt.genSaltSync(8);

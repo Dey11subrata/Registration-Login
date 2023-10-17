@@ -17,7 +17,12 @@ mongoose
     console.log("unable to connect to database error: ", error)
   );
 
+// @user registration
+// @routin all user registration related requests to api/users router module
 app.use("/api/users", users);
+
+// @user login
+// @all user login related requests redirected to api/login router module
 app.use("/api/login", login);
 
 app.listen(port, () => console.log("listning on port ", port));
