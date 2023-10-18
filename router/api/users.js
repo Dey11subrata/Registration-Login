@@ -58,4 +58,21 @@ router.get("/:userEmail", async (req, res) => {
   res.json(user);
 });
 
+// @update password
+// @required for changing password and/or forgot password
+// @find user then change the password feild
+// @route   POST api/users/update_password
+
+router.post("/update_password", async (req, res) => {
+  // find user
+  console.log("update password user email:", req.body.userEmail);
+  const user = await lookForUser(req.body.userEmail);
+  // enter new password
+  const newPassword = encryptPassword(req.body.password);
+  // put password into database
+  await user.updateOne({ password: newPassword });
+  console.log("password updated sucessfully...");
+  res.json(user);
+});
+
 module.exports = router;
