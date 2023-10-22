@@ -25,3 +25,9 @@ state
     - string
 pincode
     - number
+
+
+#Note: 
+    avoid naming folders with any special characters. can use '_', '-'
+
+
