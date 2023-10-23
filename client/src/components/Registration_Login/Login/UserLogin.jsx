@@ -4,9 +4,10 @@ import {
     Input,
     Button
 } from 'reactstrap'
+import './UserLogin.css'
 function UserLogin(){
     return(
-        <div>
+        <div class='user-login-form'>
             
                 <h2>Login</h2>
                 <Form>
@@ -19,15 +20,17 @@ function UserLogin(){
                             type='email'
                         />
                     </FormGroup>
-                    <FormGroup >
-                        {/* <Label for='password'>Password</Label> */}
-                        <Input
-                            id='password'
-                            name='password'
-                            placeholder='password'
-                            type='password'
-                        />
-                    </FormGroup>
+                    <div className="enter-password">
+                        <FormGroup >
+                            {/* <Label for='password'>Password</Label> */}
+                            <Input
+                                id='password'
+                                name='password'
+                                placeholder='password'
+                                type='password'
+                            />
+                        </FormGroup>
+                    </div>
                     <Button
                         color="primary"
                         outline
