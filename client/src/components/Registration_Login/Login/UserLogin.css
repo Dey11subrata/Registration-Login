@@ -1,0 +1,8 @@
+.user-login-form{
+    max-width:40% ;
+    margin:2rem auto;
+}
+
+.user-login-form input{
+   text-align: center;
+  }
