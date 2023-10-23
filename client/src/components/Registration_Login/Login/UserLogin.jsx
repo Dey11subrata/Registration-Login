@@ -5,7 +5,22 @@ import {
     Button
 } from 'reactstrap'
 import './UserLogin.css'
+import { useState } from 'react';
 function UserLogin(){
+    const [button, setButton]=useState({
+        type: "Submit",
+        passwordFieldHidden:true 
+    })
+    
+
+    let handleButtonClick = (e)=>{
+        setButton({
+            type:'Login',
+            passwordFieldHidden:false
+        }
+            )
+    }
+    
     return(
         <div class='user-login-form'>
             
@@ -20,7 +35,7 @@ function UserLogin(){
                             type='email'
                         />
                     </FormGroup>
-                    <div className="enter-password">
+                    <div className="enter-password" hidden={button.passwordFieldHidden} >
                         <FormGroup >
                             {/* <Label for='password'>Password</Label> */}
                             <Input
@@ -34,8 +49,9 @@ function UserLogin(){
                     <Button
                         color="primary"
                         outline
+                        onClick={handleButtonClick}
                     >
-                        Submit
+                        {button.type}
                     </Button>
                 </Form>
 
