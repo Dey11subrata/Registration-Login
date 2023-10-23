@@ -1,0 +1,8 @@
+.user-registration-form{
+    max-width:40% ;
+    margin:2rem auto;
+}
+
+.user-registration-form input{
+   text-align: center;
+  }

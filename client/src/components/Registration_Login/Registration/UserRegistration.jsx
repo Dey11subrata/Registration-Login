@@ -5,6 +5,7 @@ import {
   Input,
   Button
 } from 'reactstrap'
+import './UserRegistration.css'
 
 function UserRegistration() {
   return (
@@ -82,6 +83,9 @@ function UserRegistration() {
             placeholder='Phone Number'
           />
         </FormGroup>
+        <Button>
+          Register
+        </Button>
       </Form>
         
     </div>
