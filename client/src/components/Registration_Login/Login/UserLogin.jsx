@@ -6,6 +6,7 @@ import {
 } from 'reactstrap'
 import './UserLogin.css'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 function UserLogin(){
     const [button, setButton]=useState({
         type: "Submit",
@@ -53,9 +54,9 @@ function UserLogin(){
                     >
                         {button.type}
                     </Button>
+                    <Link to='register'>Registration</Link>
                 </Form>
-
-        </div>
+            </div>
     )
 }
 
