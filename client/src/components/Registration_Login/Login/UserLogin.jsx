@@ -6,27 +6,53 @@ import {
 } from 'reactstrap'
 import './UserLogin.css'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function UserLogin(){
     const [button, setButton]=useState({
         type: "Submit",
         passwordFieldHidden:true 
     })
+    // created dumy user for test purpose
+    const dummyUser = {
+        userEmail: "test@example.com"
+    }
+    const [user, setUser]= useState({})
     
+    const navigate = useNavigate()
 
     let handleButtonClick = (e)=>{
-        setButton({
-            type:'Login',
-            passwordFieldHidden:false
+        if(button.type==='Register'){
+            navigate('/register')
         }
-            )
+        if(user.userEmail === dummyUser.userEmail){
+            setButton({
+                type:'Login',
+                passwordFieldHidden:false
+            }
+                )
+        }
+        else{
+            setButton({
+                type:'Register',
+                passwordFieldHidden:true
+            }
+                )
+        }
+    }
+    const handleChange = (e)=>{
+        setUser({...user,[e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log()
     }
     
     return(
         <div class='user-login-form'>
             
                 <h2>Login</h2>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         {/* <Label for='userEmail'>Email</Label> */}
                         <Input
@@ -34,6 +60,7 @@ function UserLogin(){
                             name='userEmail'
                             placeholder='Email'
                             type='email'
+                            onChange={handleChange}
                         />
                     </FormGroup>
                     <div className="enter-password" hidden={button.passwordFieldHidden} >
@@ -44,6 +71,7 @@ function UserLogin(){
                                 name='password'
                                 placeholder='password'
                                 type='password'
+                                onChange={handleChange}
                             />
                         </FormGroup>
                     </div>
@@ -54,7 +82,7 @@ function UserLogin(){
                     >
                         {button.type}
                     </Button>
-                    <Link to='register'>Registration</Link>
+                    {/* <Link to='register'>Registration</Link> */}
                 </Form>
             </div>
     )
