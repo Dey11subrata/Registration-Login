@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Form,
   FormGroup,
@@ -8,15 +8,29 @@ import {
 import './UserRegistration.css'
 
 function UserRegistration() {
+const [user, setUser]= useState({})
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    setUser({...user, [e.target.name]: e.target.value})
+    console.log(user)
+
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(user)
+  }
   return (
     <div className='user-registration-form'>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <FormGroup>
+          {/* user email should be taken from login page email field */}
           <Input
             type='email'
             name='userEmail'
             id='userEmail'
             placeholder='Email'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -25,6 +39,7 @@ function UserRegistration() {
             name='fullName'
             id='fullName'
             placeholder='Full Name'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -33,6 +48,7 @@ function UserRegistration() {
             name='phoneNumber'
             id='phoneNumber'
             placeholder='Phone Number'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -41,6 +57,7 @@ function UserRegistration() {
             name='password'
             id='password'
             placeholder='Enter Password'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -49,14 +66,16 @@ function UserRegistration() {
             name='confirm_password'
             id='confirm_password'
             placeholder='Re-Enter Password'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
           <Input
-            type="datetime"
+            type="date"
             id="birthDate"
             name="birthDate"
             placeholder="Enter Date Of Birth"
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -65,6 +84,7 @@ function UserRegistration() {
             name='streetAddress'
             id='streetAddress'
             placeholder='Address'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -73,6 +93,7 @@ function UserRegistration() {
             name='city'
             id='city'
             placeholder='City'
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -80,7 +101,8 @@ function UserRegistration() {
             type='text'
             name='pincode'
             id='pincode'
-            placeholder='Phone Number'
+            placeholder='Pin Code'
+            onChange={handleChange}
           />
         </FormGroup>
         <Button>
