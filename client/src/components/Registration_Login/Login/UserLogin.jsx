@@ -6,7 +6,7 @@ import {
 } from 'reactstrap'
 import './UserLogin.css'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function UserLogin(){
     const [button, setButton]=useState({
         type: "Submit",
