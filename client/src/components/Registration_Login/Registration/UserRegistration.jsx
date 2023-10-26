@@ -6,6 +6,7 @@ import {
   Button
 } from 'reactstrap'
 import './UserRegistration.css'
+import { registerUser } from '../../../services/service'
 
 function UserRegistration() {
 const [user, setUser]= useState({})
@@ -16,9 +17,13 @@ const [user, setUser]= useState({})
 
   }
 
+  // sending axios call to server
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(user)
+    const res = registerUser(user);
+    console.log(res)
+    
   }
   return (
     <div className='user-registration-form'>
