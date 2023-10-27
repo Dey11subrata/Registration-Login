@@ -7,29 +7,36 @@ import {
 import './UserLogin.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {isEmailRegistered, userLogin} from '../../../services/service';
 function UserLogin(){
     const [button, setButton]=useState({
         type: "Submit",
         passwordFieldHidden:true 
     })
-    // created dumy user for test purpose
-    const dummyUser = {
-        userEmail: "test@example.com"
-    }
+    // // created dumy user for test purpose
+    // const dummyUser = {
+    //     userEmail: "test@example.com"
+    // }
     const [user, setUser]= useState({})
     
     const navigate = useNavigate()
 
     let handleButtonClick = (e)=>{
+
         if(button.type==='Register'){
             navigate('/register')
         }
-        if(user.userEmail === dummyUser.userEmail){
+        if(isEmailRegistered(user.userEmail)){
+            console.log(isEmailRegistered("loginPage: ",user.userEmail))
             setButton({
                 type:'Login',
                 passwordFieldHidden:false
             }
                 )
+        }
+        else if(button.type === "Login"){
+            const result = userLogin(user);
+            console.log(result);
         }
         else{
             setButton({
